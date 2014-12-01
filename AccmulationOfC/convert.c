@@ -212,7 +212,7 @@ int convertFrom16(char *num, int* result)
 	*result = temp;
 	return ret;
 }
-void main()
+void mainforconvert()
 {
 	int num = 34;
 	char buf2[20];
