@@ -190,7 +190,7 @@ int rotatedArrayMin(int *Arr, int num, int*result)
 	return ret;
 }
 
-void main()
+void mainforbinaryFirst()
 {
 	int num = 10;
 	int a[] = { 2, 5, 6, 8, 16, 34, 41, 89, 131, 234 };
