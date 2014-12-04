@@ -123,7 +123,6 @@ int findkth(int *Arr1, int num1, int *Arr2, int num2, int k, int *result)
 	{
 		findkth(Arr1, num1, Arr2 + indexB, num2 - indexB, k - indexB, result);
 	}
-
 	else
 	{
 		*result = Arr1[indexA - 1];
@@ -131,17 +130,17 @@ int findkth(int *Arr1, int num1, int *Arr2, int num2, int k, int *result)
 	}
 	return ret;
 }
-void main()
+void main04()
 {
 	int result = -1;
 	int num = 10;
 	int a[] = { 3, 3, 4, 5, 6, 1, 1, 1, 2, 3 };
 	rotatedArraySearchKey(a, num, 3, &result);
-	printf("%d\n", result);
+	printf("查找的结果：%d\n", result);
 	int b[] = { 1, 2, 3 ,4,5,6,7,8,9};
 	int c[] = { 6, 7 ,8,9,10};
 	int mideaNum = 0;
 	sortedArraySearchMedian(b, 9, c, 5, &mideaNum);
-	printf("%d\n", mideaNum);
+	printf("中位数是:%d\n", mideaNum);
 	system("pause");
 }
