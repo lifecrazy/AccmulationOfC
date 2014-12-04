@@ -78,7 +78,7 @@ int matrixTransposition(int **Arr, int num)
 	if (Arr == NULL)
 	{
 		ret = -1;
-		printf("¾ØÕóĞı×ªÊ§°Ü£¡£¡£¡");
+		printf("¾ØÕó×ªÖÃÊ§°Ü£¡£¡£¡");
 		return ret;
 	}
 	int temp = 0;
