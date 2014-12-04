@@ -209,7 +209,7 @@ int matrixPrintByDiagonalForth(int **Arr, int num)
 	}
 	return ret;
 }
-void main()
+void mainformatrixPrint()
 {
 	const int n = 4;
 	int **a = (int **)malloc(n*sizeof(int*));
