@@ -4,6 +4,8 @@
 */
 #include <stdio.h>
 #include <stdlib.h>
+
+#pragma region 1.旋转数组有重复的元素 使用二分查找
 //旋转数组有重复的元素 使用二分查找
 //如果要查找的元素存在则返回true(1)否则返回false (0)
 //思路：比较的关键就是要确定mid是在数组的前半部分还是后半部分
@@ -58,6 +60,9 @@ int rotatedArraySearchKey(int *Arr, int num, int key, int *result)
 	*result = 0;
 	return ret;
 }
+#pragma endregion
+
+#pragma region 2.给定两个已经排序好的数组，找到两者所有元素中的中位数
 //给定两个已经排序好的数组，找到两者所有元素中的中位数
 //思路1：一般的思路是将两个数组合并为一个数组然后找出中间的那个数但这样的时间复杂度为O(m+n)
 //思路2：可以定义两个指针分别指向两个数组的第一元素然后再定义一个计数器，分别比较两个指针指向的数据元素直到计数器的大小为两个数组的个数和的一半为止
@@ -130,6 +135,9 @@ int findkth(int *Arr1, int num1, int *Arr2, int num2, int k, int *result)
 	}
 	return ret;
 }
+#pragma endregion
+
+
 void main04()
 {
 	int result = -1;
