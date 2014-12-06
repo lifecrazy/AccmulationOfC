@@ -4,6 +4,7 @@
 */
 #include <stdio.h>
 #include <stdlib.h>
+#pragma region 1.矩阵的查找
 //矩阵的查找
 //题目：假设矩阵从上到下依次增大从左到右依次增大，查找每个数字是否在这个矩阵当中
 //如果要查找的元素存在则返回true(1)否则返回false(0)
@@ -42,6 +43,10 @@ int matrixSearchKey(int **Arr, int num, int key, int *result)
 	*result = 0;
 	return ret;
 }
+#pragma endregion
+
+
+#pragma region 2.将矩阵旋转九十度
 //题目：将矩阵旋转九十度
 //思路：将整个矩阵先按照副对角线翻转，然后按照中轴线上下翻转就能使其旋转九十度
 int matrixRotating(int **Arr, int num)
@@ -57,7 +62,7 @@ int matrixRotating(int **Arr, int num)
 	//按照副对角线进行翻转
 	for (int i = 0; i < num; i++)
 	{
-		for (int j = 0; j < num -i; j++)
+		for (int j = 0; j < num - i; j++)
 		{
 			temp = Arr[i][j];
 			Arr[i][j] = Arr[num - j - 1][num - i - 1];
@@ -76,6 +81,10 @@ int matrixRotating(int **Arr, int num)
 	}
 	return ret;
 }
+#pragma endregion
+
+
+#pragma region 3.矩阵转置
 //题目：矩阵转置
 //将整个矩阵按照主对角线翻转就能得到结果
 int matrixTransposition(int **Arr, int num)
@@ -100,7 +109,10 @@ int matrixTransposition(int **Arr, int num)
 	}
 	return ret;
 }
-void main()
+#pragma endregion
+
+
+void main08()
 {
 	const int n = 4;
 	int **a = (int **)malloc(n*sizeof(int*));
