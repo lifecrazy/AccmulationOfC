@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#pragma region 1.二分查找
 //1.二分查找
 int binarySearch(int *Arr, int num, int key, int*result)
 {
@@ -38,6 +39,9 @@ int binarySearch(int *Arr, int num, int key, int*result)
 	*result = -1;
 	return ret;
 }
+#pragma endregion
+
+#pragma region 2.旋转数组方法一
 //2.旋转数组
 //方法一：
 //思路：1.先确定Arr[mid]在旋转数组的前一部分还是后一部分
@@ -88,6 +92,10 @@ int rotatedArraySearch(int *Arr, int num, int key, int*result)
 	*result = -1;
 	return ret;
 }
+#pragma endregion
+
+
+#pragma region 3.旋转数组方法二
 //方法二：
 //思路：1.先确定key在Arr[mid]的左边还是右边
 //      2.再确定Arr[mid]在旋转数组的前一部分还是后一部分
@@ -152,6 +160,10 @@ int rotatedArraySearchSec(int *Arr, int num, int key, int*result)
 	*result = -1;
 	return ret;
 }
+#pragma endregion
+
+
+#pragma region 4.旋转数组获取最小值
 //4.旋转数组获取最小值
 int rotatedArrayMin(int *Arr, int num, int*result)
 {
@@ -177,18 +189,21 @@ int rotatedArrayMin(int *Arr, int num, int*result)
 		{
 			low = mid;
 		}
-		else if (Arr[low]>Arr[mid])
+		else if (Arr[low] > Arr[mid])
 		{
 			high = mid;
-		}	
+		}
 		else if (Arr[low] == Arr[mid])
 		{
 			*result = Arr[low + 1];
 			return ret;
-		}	
+		}
 	}
 	return ret;
 }
+#pragma endregion
+
+
 
 void mainforbinaryFirst()
 {
