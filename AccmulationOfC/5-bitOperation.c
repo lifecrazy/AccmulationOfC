@@ -45,6 +45,7 @@ int getCharCount(char c, int*count)
 }
 #pragma endregion
 
+#pragma region 3.判断一个数是否为2的N次幂
 //3.判断一个数是否为2的N次幂
 //思路：例子：8 的二进制1000
 //            7 的二进制0111
@@ -53,6 +54,8 @@ int isPowerTwo(int n)
 {
 	return (n>0) && (n&(n - 1));
 }
+#pragma endregion
+
 //关于异或运算:相同为零，相异为一
 //4.一个数组除了一个数的个数为一个，其余数的个数都是偶数个，求那个个数为一个的数
 //思路：相同的数字进行与运算之后都变为了0，最后就剩下那个数了
@@ -121,9 +124,9 @@ void main()
 	int result = 0;
 	getEvenSingleOne(a, num, &result);
 	printf("%d\n", result);
-	int b[] = { 1, 1, 1, 3, 3, 3, 4, 4, 4, 6, 6, 6, 7, 7, 7, 9, 9, 9, 0, 0, 0, 20 };
+	int b[] = { 1, 1, 1, 3, 3, 3, 4, 4, 4, 6, 6, 6, 7, 7, 7, 9, 9, 9, 0, 0, 0, 20,20,20,20 };
 	int resultOdd = 0;
-	getOddSingleOne(b, num + 1, &resultOdd);
+	getOddSingleOne(b, num + 4, &resultOdd);
 	printf("%d\n", resultOdd);
 	system("pause");
 }
