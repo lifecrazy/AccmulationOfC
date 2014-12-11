@@ -168,7 +168,7 @@ int getCountAndSay(int n, char *outbuf)
 //	free(freeStart);
 //}
 
-void main()
+void main11()
 {
 	char *p = "aaaaaaaaaaaabbbbbbbbbccccccd";
 	char buf[100];
