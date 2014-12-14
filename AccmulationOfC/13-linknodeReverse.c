@@ -5,6 +5,7 @@ typedef struct Node
 	int data;
 	struct Node *next;
 }NodeList;
+
 int reverseNodeList(NodeList *pHead)
 {
 	int ret = 0;
@@ -14,19 +15,19 @@ int reverseNodeList(NodeList *pHead)
 		printf("func reverseNodeList err:%d", ret);
 		return ret;
 	}
-	NodeList *pCur = pHead->next;
-	NodeList *pPre = NULL;
+	NodeList *pCur = pHead->next;//指向当前的结点
+	NodeList *pPre = NULL;//指向前一个结点，即指针翻转后的下一个节点
 	while (pCur != NULL)
 	{
-		NodeList *pNext = pCur->next;
-		pCur->next = pPre;
-		pPre = pCur;
-		if (pNext == NULL)
+		NodeList *pNext = pCur->next;//指向当前节点的下一个结点
+		pCur->next = pPre;//将当前结点的下一个结点设置为前一个结点 即指针翻转
+		pPre = pCur;//指针翻转之后前一个结点前移
+		if (pNext == NULL)//判断下一个结点是否为空，如果为空说明当前结点为最后一个结点即逆置后的第一个结点
 		{
 			pHead->next = pCur;
 			return ret;
 		}
-		pCur = pNext;
+		pCur = pNext;//指针翻转之后当前结点前移
 	}
 	return ret;
 }
@@ -36,12 +37,12 @@ int reverseNodeListInGroup(NodeList *pHead, int k)
 	if (pHead == NULL)
 	{
 		ret = -1;
-		printf("func reverseNodeList err:%d", ret);
+		printf("func reverseNodeListInGroup err:%d", ret);
 		return ret;
 	}
 	NodeList *pCur = pHead->next;
 	NodeList *pPre = NULL;
-	NodeList *lasthead = pHead;
+	NodeList *lasthead = pHead;//标记要被反转的子链的第一个结点的前一个结点
 	int index = 1;
 	while (pCur != NULL)
 	{
@@ -50,17 +51,17 @@ int reverseNodeListInGroup(NodeList *pHead, int k)
 		pPre = pCur;
 		if (index%k == 0||pNext == NULL)
 		{
-			NodeList *pTemp = lasthead->next;
-			lasthead->next = pCur;
-			lasthead = pTemp;
-			lasthead->next = pNext;
+			NodeList *pTemp = lasthead->next;//标记要被反转的子链的第一个结点即翻转后的最后一个结点
+			lasthead->next = pCur;//设置翻转后的子链的第一个结点
+			lasthead = pTemp;//标记要被反转的子链的第一个结点的前一个结点
+			lasthead->next = pNext;//将翻转后的子链和原来的链表剩余的结点链接起来
 		}
 		pCur = pNext;
 		index++;
 	}
 	return ret;
 }
-void main()
+void main13()
 {
 	const int num = 10;
 	int a[10];
@@ -73,19 +74,21 @@ void main()
 	{
 		a[i] = rand() & 30;
 	}
-	printf("链表从头到尾元素是：\n");
+	
 	for (int i = 0; i < num; i++)
 	{
 		insertLastNodeList(list, a[i]);
 	}
+	printf("链表从头到尾元素是：\n");
 	traverseNodeList(list);
 	printf("\n");
 	reverseNodeList(list);
-	printf("\n");
+	printf("链表翻转后的结果是：\n");
 	traverseNodeList(list);
 	printf("\n");
 	reverseNodeListInGroup(list,3);
-	printf("\n");
+	printf("链表以3为单位翻转后的结果是：\n");
 	traverseNodeList(list);
+	printf("\n");
 	system("pause");
 }
