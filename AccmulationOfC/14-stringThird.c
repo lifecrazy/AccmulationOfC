@@ -89,9 +89,7 @@ int strReplacestrstr(char *str, const char *strSrc, const char *strDes)
 	}
 	int lenSrc = strlen(strSrc);
 	int lenDes = strlen(strDes);
-	int lenStr = strlen(str);
 	char *pStrCur = NULL;
-	char *pSrcCur = NULL;
 	char *pDesCur = NULL;
 	pStrCur = str;
 	while (*pStrCur != '\0')
@@ -138,6 +136,8 @@ int strReplacestrstr(char *str, const char *strSrc, const char *strDes)
 	return ret;
 }
 //不修改原字符串，再申请内存空间返回结果（被调函数分配内存空间并返回结果）
+//思路：先统计原字符串中str要被替换的字符串的个数然后计算替换后的字符串的总共需要的空间并申请分配
+//重新查找要被替换的字符串strSrc找到之后先将之前的一部分内容拷贝到新分配的内存空间然后再将要替换的字符串strDes拷贝进去如此循环直到所有的字符都拷贝完为止。
 int strReplaceSecond(const char *str, const char *strSrc, const char *strDes, char **result)
 {
 	int ret = 0;
@@ -149,11 +149,8 @@ int strReplaceSecond(const char *str, const char *strSrc, const char *strDes, ch
 	}
 	int lenSrc = strlen(strSrc);
 	int lenDes = strlen(strDes);
-	int lenStr = strlen(str);
 	int countSrc = 0;
 	char *pStrCur = str;
-	char *pSrcCur = NULL;
-	char *pDesCur = NULL;
 	//统计要被替换的字符串(strSrc)在原字符串(str)中的个数countSrc
 	while (*pStrCur != '\0')
 	{
