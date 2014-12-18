@@ -49,7 +49,7 @@ int reverseNodeListInGroup(NodeList *pHead, int k)
 		NodeList *pNext = pCur->next;
 		pCur->next = pPre;
 		pPre = pCur;
-		if (index%k == 0||pNext == NULL)
+		if (index%k == 0 || pNext == NULL)
 		{
 			NodeList *pTemp = lasthead->next;//标记要被反转的子链的第一个结点即翻转后的最后一个结点
 			lasthead->next = pCur;//设置翻转后的子链的第一个结点
@@ -59,6 +59,43 @@ int reverseNodeListInGroup(NodeList *pHead, int k)
 		pCur = pNext;
 		index++;
 	}
+	return ret;
+}
+int reverseNodeListBetween(NodeList *pHead, int m, int n)
+{
+	int ret = 0;
+	if (pHead == NULL)
+	{
+		ret = -1;
+		printf("func reverseNodeList err:%d", ret);
+		return ret;
+	}
+	int len = 0;
+	sizeNodeList(pHead, &len);
+	if (n > len)
+	{
+		ret = -2;
+		printf("func reverseNodeList m:%d 非法  err:%d", m, ret);
+		return ret;
+	}
+	NodeList *pCur = pHead->next;//指向当前的结点
+	NodeList *pPre = NULL;//指向前一个结点，即指针翻转后的下一个节点
+	for (int i = 1; i < m; i++)
+	{
+		pPre = pCur;
+		pCur = pCur->next;
+	}
+	NodeList *pStartPre = pPre;
+	NodeList *pEnd = pCur;
+	for (int i = 0; i < n - m + 1; i++)
+	{
+		NodeList *pNext = pCur->next;//指向当前节点的下一个结点
+		pCur->next = pPre;//将当前结点的下一个结点设置为前一个结点 即指针翻转
+		pPre = pCur;//指针翻转之后前一个结点前移
+		pCur = pNext;//指针翻转之后当前结点前移
+	}
+	pStartPre->next = pPre;
+	pEnd->next = pCur;
 	return ret;
 }
 void main13()
@@ -74,7 +111,6 @@ void main13()
 	{
 		a[i] = rand() & 30;
 	}
-	
 	for (int i = 0; i < num; i++)
 	{
 		insertLastNodeList(list, a[i]);
@@ -86,8 +122,12 @@ void main13()
 	printf("链表翻转后的结果是：\n");
 	traverseNodeList(list);
 	printf("\n");
-	reverseNodeListInGroup(list,3);
+	reverseNodeListInGroup(list, 3);
 	printf("链表以3为单位翻转后的结果是：\n");
+	traverseNodeList(list);
+	printf("\n");
+	reverseNodeListBetween(list, 2, 7);
+	printf("逆置链表从第%d个结点到第%d个结点后的结果是：\n", 2, 7);
 	traverseNodeList(list);
 	printf("\n");
 	system("pause");
