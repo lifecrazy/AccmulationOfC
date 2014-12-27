@@ -151,8 +151,6 @@ void main18()
 	getLongestCommon(str1, str2, &result);
 	printf("最长公共子串: %s\n", result);
 	free(result);
-	/*char *str3 = "abcdefghi";
-	char *str4 = "mnaghbegyzk";*/
 	char *str3 = "abcba";
 	char *str4 = "bdca";
 	getLongestSubSequence(str3, str4, &result);
