@@ -143,7 +143,7 @@ int getLongestSubSequence(char *str1, char *str2, char**result)
 	*result = pTemp;
 	return ret;
 }
-void main()
+void main18()
 {
 	char *str1 = "abcdefghi";
 	char *str2 = "afdadfdsfdsefghiafdadsfa";
