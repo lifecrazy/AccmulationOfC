@@ -326,10 +326,10 @@ int getLongestPlalindromeSec(const char *str, char **result)
 	*result = pTemp;
 	return ret;
 }
-void main()
+void main17()
 {
 	char *str = "ab2     Bc      dcb 2bA    ";
-	char *str1 = "a b    cc       b     a";
+	char *str1 = "a b    c       b     a";
 	int result = -1;
 	isPlalindrome(str, &result);
 	printf("str的结果是：result :%d\n", result);
